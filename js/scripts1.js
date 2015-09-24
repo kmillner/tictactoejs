@@ -1,14 +1,11 @@
 var board;
+var player = "X";
 var cell;
 var winConditions = [[0,1,2], [3,4,5], [6,7,8],
 [0,3,6], [1,4,7], [2,5,8],
 [0,4,8], [6,4,2]]
 var gameOver;
-
-function Cell(cell) {
-  this.cell = "";
-  this.isOccupied = false;
-}
+//var winAlert;
 
 function createBoard(){
   for (var i =0; i<board.length; i++){
@@ -16,24 +13,48 @@ function createBoard(){
   }
 }
 
-Cell.prototype.setCell = function(value){
-  if(value !== 'X' && value !== 'O'){
-    return;
-  } else if (this.isOccupied){
-    alert("Ouch!");
-  }
-}
-
 function createText(){
   $('.playerText').text('Turn :' + player)
 }
 
+debugger;
+
+function setCell(cell){
+  if(gameOver) return;
+  board[cell] = player;
+  checkState();
+  if (gameOver) return;
+  currentPlayer();
+  createBoard();
+  createText();
+}
+
+debugger;
 function cellClick(cell) {
     if (cell.innerHTML === 'X' || cell.innerHTML === 'O') {
         return;
     }
     cell.innerHTML = player;
     currentPlayer();
+}
+
+function currentPlayer(){
+  if (player == "O")
+  player = "X";
+  else
+  player = "O";
+}
+
+function checkState() {
+$.each(winConditions, function(index,value){
+  if (board[winConditions[index][0]] == board[winConditions[index][1]]
+    && board[winConditions[index][0]] == board[winConditions[index][2]]
+    && board[winConditions[index][0]] != " "){
+      gameOver = true;
+      $('.playerText').text('Player ' + player + ' wins');
+      createBoard();
+    }
+  });
 }
 
 function init(){

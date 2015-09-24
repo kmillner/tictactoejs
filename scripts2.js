@@ -16,16 +16,12 @@ function createBoard(){
   }
 }
 
-Cell.prototype.setCell = function(value){
-  if(value !== 'X' && value !== 'O'){
-    return;
-  } else if (this.isOccupied){
-    alert("Ouch!");
-  }
-}
-
-function createText(){
-  $('.playerText').text('Turn :' + player)
+// Cell.prototype.setCell = function(value){
+//   if(value !== 'X' && value !== 'O'){
+//     return;
+//   } else if (this.isOccupied){
+//     alert("Ouch!");
+//   }
 }
 
 function cellClick(cell) {
