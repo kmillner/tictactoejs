@@ -49,9 +49,8 @@ function startNewGame(){
 }
 
 var img= '<img src="./img/rila.gif"/>';
-var txt = 'X';
-var img= '<img src="./img/rila.gif"/>';
-var txt = "O";
+var img= '<img src="./img/kori.gif"/>';
+
 $(document).ready(function(){
   init();
   // $(this).find('.cell').html(txt).show();
