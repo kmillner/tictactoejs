@@ -40,9 +40,9 @@ function cellClick(cell) {
 
 function currentPlayer(){
   if (player == "O")
-  player = "X";
-  else
   player = "O";
+  else
+  player = "X";
 }
 
 function checkState() {
