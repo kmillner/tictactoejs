@@ -71,7 +71,7 @@ function startNewGame(){
 
 var img= '<img src="./img/rila.gif"/>';
 var txt = 'X';
-var img= '<img src="./img/rila.gif"/>';
+var img= '<img src="./img/kori.gif"/>';
 var txt = "O";
 $(document).ready(function(){
   init();
